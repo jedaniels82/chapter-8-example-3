@@ -40,13 +40,17 @@ jobs:
       # Builds the Docker image.
       #
       - name: Build
+        run: echo "starting Build step"
         run: ./scripts/build-image.sh
+        run: echo "finished Build step"
 
       #
       # Publishes the Docker image to the container registry.
       #
       - name: Publish
+        run: echo "starting Publish step"
         run: ./scripts/push-image.sh
+        run: echo "finished Publish step"
 
       #
       # Installs Kubectl and connects it to the cluster.
@@ -62,4 +66,6 @@ jobs:
       # Expands the configuration template and deploys the microservice.
       #
       - name: Deploy
+        run: echo "starting Deploy step"
         run: ./scripts/deploy.sh
+        run: echo "finished Deploy step"
